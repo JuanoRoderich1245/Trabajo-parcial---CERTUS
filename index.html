@@ -1,0 +1,145 @@
+<!DOCTYPE html> <!-- Indica al navegador que el documento es un documento HTML. -->
+<html lang="es"> <!-- Elemento raíz de un documento HTML que define todo el documento. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRABAJO PARCIAL - U2</title>
+    <!-- CARGAMOS EL CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CARGAMOS BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CARGAMOS JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- CARGAMOS LA BIBLIOTECA DE JS DE BOOTSTRAP-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body class="fondo"> <!-- Contiene todo el contenido visible de la página HTML. -->
+    <!-- CONTENEDOR -->
+    <div class="container">
+        <!-- FILAS -->
+        <div class="row">
+            <!-- COLUMNAS -->
+            <div class="col-12 col-sm-8 col-lg-6 col-xl-4 mx-auto">
+                <!-- COLOCAMOS LA ETIQUETA FORM CON SUS ATRIBUTOS -->
+                <form id="formulario" action="new_user.html" method="post" class="needs-validation" novalidate >
+                    <!-- TÍTULO DEL FORMULARIO -->
+                    <h2 class="text-center">
+                        REGISTRO DE DATOS DE CLIENTE
+                    </h2>
+                    <div class="mb-3">
+                        <!-- CREACIÓN DE LA ETIQUETA Y CAMPO PARA EL NOMBRE-->
+                        <label for="txtNombre" class="form-label">Ingrese su nombre:</label>
+                        <input type="text" class="form-control" name="txtNombre" id="txtNombre" autocomplete="off"
+                            maxlength="54" required>
+                        <!-- LOS SIGUIENTES div CON LAS CLASES invalid y valid FUNCIONARAN CON LA CLASE form-control -->
+                        <!-- CREAMOS LAS ETIQUETAS DIV CON LA CLASE valid-feedback NOTIFICANDO QUE EL CAMPO ESTÁ COMPLETO -->
+                        <div class="valid-feedback">
+                            ¡Campo válido!
+                        </div>
+                        <!-- CREAMOS LAS ETIQUETAS DIV CON LA CLASE valid-feedback NOTIFICANDO QUE EL CAMPO ESTÁ INCOMPLETO -->
+                        <div class="invalid-feedback">
+                            Es necesario colocar tus nombres.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- CREACIÓN DE LA ETIQUETA Y CAMPO PARA EL APELLIDO -->
+                        <label for="txtApellido">Ingrese su apellido:</label>
+                        <input type="text" class="form-control" name="txtApellido" id="txtApellido"
+                            autocomplete="off" maxlength="54" required>
+                        <div class="valid-feedback">
+                            ¡Campo válido!
+                        </div>
+                        <div class="invalid-feedback">
+                            Es necesario colocar tus apellidos.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- CREACIÓN DE LA ETIQUETA Y CAMPO PARA EL CORREO ELECTRÓNICO -->
+                        <label for="txtEmail">Ingrese su correo electrónico:</label>
+                        <input type="email" name="txtEmail" class="form-control" id="txtEmail"
+                            autocomplete="off" maxlength="128" required>
+                        <div class="valid-feedback">
+                            ¡Campo válido!
+                        </div>
+                        <div class="invalid-feedback">
+                            Es necesario colocar tu correo electrónico.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- CREACIÓN DE LA ETIQUETA Y RADIO BUTTONS PARA EL GÉNERO -->
+                        <label for="txtNombre" class="form-label">Género:</label>
+                        <div class="form-check">
+                            <!-- RADIO BUTTON PARA FEMENINO -->
+                            <input class="form-check-input" type="radio" name="genero" id="rbFemale" value="Femenino" required>
+                            <label class="form-check-label" for="rbFemale">
+                                Femenino
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <!-- RADIO BUTTON PARA MASCULINO -->
+                            <input class="form-check-input" type="radio" name="genero" id="rbMale" value="Masculino" required>
+                            <label class="form-check-label" for="rbMale">
+                                Masculino
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!-- CREACIÓN DE LA ETIQUETA Y CAMPO PARA LA FECHA DE NACIMIENTO -->
+                        <label class="form-label" for="dateFecNac">Ingrese su fecha de nacimiento:</label>
+                        <input type="date" class="form-control" name="dateFecNac" id="dateFecNac"
+                            class="form-control" min="1900-12-31" max="2005-12-31" required>
+                        <div class="valid-feedback">
+                            ¡Campo válido!
+                        </div>
+                        <div class="invalid-feedback">
+                            Es necesario colocar fecha de nacimiento.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-center">
+                        <!-- CREAMOS EL BOTÓN -->
+                        <button type="submit" class="btn btn-warning">ENVIAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ESTE SCRIPT HACE FUNCIONAR A LA CLASE ".needs-validation" DE LA ETIQUETA "form" QUE BRINDA BOOTSTRAP PARA
+    EL FUNCIONAMIENTO DEL CAMPO INDICANDO SI ESTÁ VACIO O NO. AYUDÁNDONOS CON EL CÓDIGO QUE NOS BRINDA LA PÁGINA DE BOOTSTRAP. -->
+    <script>
+        (function () {
+            'use strict'
+
+            // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+            var forms = document.querySelectorAll('.needs-validation')
+
+            //Recorremos los forms y evitamos en envío sin validacion
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+    <!-- CARGAMOS JS custom -->
+    <script src="js/custom.js"></script>
+</body>
+<footer>
+    <div class="autor">
+        <div class="d-flex justify-content-center">
+            <div class="mb-3"> <!-- SECCIÓN DE INFORMACIÓN DEL AUTOR -->
+                Copyright © 2023 - All Right Reserved "Juan Rodrigo"
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

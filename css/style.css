@@ -1,0 +1,31 @@
+/*Impotación de fuentes de letras desde Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Angkor&display=swap');
+
+/*Creamos la clase "fondo" e invocamos sus propiedades en la página web*/
+.fondo {
+    background-color: #9E7A41;
+}
+
+/*Creamos la clase "container" e invocamos sus propiedades en la página web*/
+.container {
+    background-color: #B0DAFF;
+}
+
+/* Aplicamos cambios de letras al título del formulario */
+h2 {
+    font-family: 'Angkor', cursive;
+}
+
+/* Aplicamos cambios de letras a cada etiqueta */
+label {
+    font-family: 'Skranji', cursive;
+}
+
+/*Creamos la clase "autor" e invocamos sus propiedades en la página web*/
+.autor {
+    /* Colocamos padding en ambos lados de 40px */
+    padding: 40px;
+    /* Cambiamos el color de fondo del elemento a marrón  */
+    background-color: #EBBA6C;
+}
